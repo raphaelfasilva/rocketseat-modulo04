@@ -1,3 +1,5 @@
+const fs = require("fs")
+const data = require('./data')
 exports.post = function(req, res) {
     const keys = Object.keys(req.body)
     for (key of keys) {
@@ -5,5 +7,12 @@ exports.post = function(req, res) {
             return res.send("por favor validar todos os campos")
         }
     }
-    return res.send(req.body)
+    req.body.birth = Date.parse(req.body.birth)
+    req.body.created_at = Date.now()
+    data.instructors.push(req.body)
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
+        if (err) return res.send("erro gravar no arquivo")
+        return res.send(req.body)
+    })
+
 }
