@@ -7,9 +7,19 @@ exports.post = function(req, res) {
             return res.send("por favor validar todos os campos")
         }
     }
-    req.body.birth = Date.parse(req.body.birth)
-    req.body.created_at = Date.now()
-    data.instructors.push(req.body)
+    let { avatar_url, birth, name, services, gender } = req.body
+    birth = Date.parse(birth)
+    const created_at = Date.now()
+    const id = Number(data.instructors.length + 1)
+    data.instructors.push({
+        id,
+        avatar_url,
+        name,
+        birth,
+        gender,
+        services,
+        created_at,
+    })
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
         if (err) return res.send("erro gravar no arquivo")
         return res.send(req.body)
