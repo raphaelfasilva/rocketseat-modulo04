@@ -1,5 +1,23 @@
 const fs = require("fs")
 const data = require('./data')
+const { age } = require('./util')
+exports.show = function(req, res) {
+    const { id } = req.params
+    const foundInstructors = data.instructors.find(function(instructors) {
+        return instructors.id == id
+    })
+    if (!foundInstructors) {
+        res.send("instrutor não encontrado")
+    }
+    const instructor = {
+        ...foundInstructors,
+        age: age(foundInstructors.birth),
+        services: foundInstructors.services.split(",")
+
+    }
+    return res.render("instructors/show", { instructor })
+
+}
 exports.post = function(req, res) {
     const keys = Object.keys(req.body)
     for (key of keys) {
