@@ -45,3 +45,6 @@ exports.post = function(req, res) {
     })
 
 }
+exports.edit = function(req, res) {
+    return res.render("instructors/edit")
+}

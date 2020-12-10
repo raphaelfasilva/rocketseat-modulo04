@@ -3,52 +3,11 @@
     <title>gym Manager - Instrutores</title>
 {% endblock %}
 {% block content %}
-<form class="card" method="post" action="/instructors">
-    <section class="avatar" style="background: url(https://source.unsplash.com/collection/8325170/500x500) no-repeat"></section>
-    <section class="details">
-         <h3>Novo Instrutor</h3>
-
-         <div class="item">
-            <div>Avatar URL</div>
-            <div>
-                <input type="url" 
-                 name="avatar_url"
-                 placeholder="http://"
-                 >
-            </div>
-        </div>
-        <div class="item">
-            <div>Instrutor</div>
-            <div>
-                <input type="text" 
-                 name="name"
-                 placeholder="Nome do instrutor"
-                 >
-            </div>
-        </div>
-        <div class="item">
-            <div>Data Nascimento</div>
-            <input type="date" 
-            name="birth" 
-            >
-        </div>
-         <div class="item">
-            <div>Sexo</div>
-            <div>
-                <span><input type="radio" name="gender" value="m">Masculino</span>
-                <span><input type="radio" name="gender" value="f">Feminino</span>
-            </div>
-        </div>
-        <div class="item">
-            <div>Área de atuação</div>
-            <div>
-                <input type="text" 
-                name="services"
-                placeholder="Coloque  os serviços separado com virgula"
-                >
-            </div>
-        </div>
- <button type="submit">Salvar</button>
-    </section>
-</form>
+    <form class="card" method="post" action="/instructors">
+        <section class="avatar" style="background: url(https://source.unsplash.com/collection/8325170/500x500) no-repeat"></section>
+        <section class="details">
+            <h3>Novo Instrutor</h3>
+             {% include "instructors/fields.njk" %} 
+        </section>
+    </form>
 {% endblock %}
