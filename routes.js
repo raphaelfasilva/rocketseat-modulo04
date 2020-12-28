@@ -14,7 +14,9 @@ routes.get('/instructors/create', function(req, res) {
 })
 routes.get('/instructors/:id', instructors.show)
 routes.get('/instructors/:id/edit', instructors.edit)
-routes.get('/members', instructors.edit)
+routes.get('/members', function(req, res) {
+    return res.render("members/index")
+})
 routes.put('/instructors', instructors.put)
 routes.delete('/instructors', instructors.delete)
 
