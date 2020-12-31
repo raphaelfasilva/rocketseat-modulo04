@@ -75,7 +75,8 @@ exports.put = function(req, res) {
     const instructor = {
         ...foundInstructors,
         ...req.body,
-        birth: Date.parse(req.body.birth)
+        birth: Date.parse(req.body.birth),
+        id: Number(req.body.id)
     }
     data.instructors[index] = instructor
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
@@ -95,4 +96,8 @@ exports.delete = function(req, res) {
         return res.redirect(`/instructors`)
     })
 
+}
+
+exports.index = function(req, res) {
+    return res.render("instructors/index", { instructors: data.instructors })
 }
