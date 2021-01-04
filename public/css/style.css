@@ -231,3 +231,11 @@ tbody tr td:last-child a {
 td:last-child {
     text-align: center;
 }
+
+tbody tr td:first-child {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    text-align: center;
+    /* item acrescentado */
+    align-items: center;
+}
