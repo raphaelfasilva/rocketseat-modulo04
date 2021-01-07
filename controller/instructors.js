@@ -1,7 +1,7 @@
 const fs = require("fs")
-const data = require('./data')
-const { age } = require('./util')
-const { date } = require('./util')
+const data = require('../data')
+const { age } = require('../util')
+const { date } = require('../util')
 exports.show = function(req, res) {
     const { id } = req.params
     const foundInstructors = data.instructors.find(function(instructors) {
@@ -27,17 +27,13 @@ exports.post = function(req, res) {
             return res.send("por favor validar todos os campos")
         }
     }
-    let { avatar_url, birth, name, services, gender } = req.body
-    birth = Date.parse(birth)
+    birth = Date.parse(req.body)
     const created_at = Date.now()
     const id = Number(data.instructors.length + 1)
     data.instructors.push({
         id,
-        avatar_url,
-        name,
+        ...req.body,
         birth,
-        gender,
-        services,
         created_at,
     })
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {

@@ -1,0 +1,39 @@
+{
+    "members": [{
+            "id": 1,
+            "avatar_url": "https://source.unsplash.com/collection/8325171/500x500",
+            "name": "Fulano de tal",
+            "email": "fulano@tal.com.br",
+            "birth": 1044057600000,
+            "gender": "M",
+            "blood": "O+",
+            "height": "1",
+            "weight": "1",
+            "created_at": 1610048376456
+        },
+        {
+            "id": 2,
+            "avatar_url": "https://source.unsplash.com/collection/8325170/500x500",
+            "name": "Fulano de tal",
+            "email": "suporte02@macip.com.br",
+            "birth": 915148800000,
+            "gender": "M",
+            "blood": "O-",
+            "height": "1",
+            "weight": "1",
+            "created_at": 1610048554439
+        },
+        {
+            "id": 3,
+            "avatar_url": "https://source.unsplash.com/collection/8325170/500x500",
+            "name": "Fulano de tal",
+            "email": "fulano@tal.com.br",
+            "birth": 1012521600000,
+            "gender": "M",
+            "blood": "B-",
+            "height": "1",
+            "weight": "1",
+            "created_at": 1610048875074
+        }
+    ]
+}
