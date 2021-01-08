@@ -27,7 +27,7 @@ exports.post = function(req, res) {
             return res.send("por favor validar todos os campos")
         }
     }
-    birth = Date.parse(req.body)
+    birth = Date.parse(req.body.birth)
     const created_at = Date.now()
     const id = Number(data.instructors.length + 1)
     data.instructors.push({
@@ -38,7 +38,7 @@ exports.post = function(req, res) {
     })
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
         if (err) return res.send("erro gravar no arquivo")
-        return res.send(req.body)
+        return res.redirect(`/instructors/${id}`)
     })
 
 }
@@ -52,7 +52,7 @@ exports.edit = function(req, res) {
     }
     const instructor = {
         ...foundInstructors,
-        birth: date(foundInstructors.birth)
+        birth: date(foundInstructors.birth).iso
     }
     return res.render("instructors/edit", { instructor })
 }
